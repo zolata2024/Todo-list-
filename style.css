@@ -1,0 +1,110 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+body{
+    background-color: #293044;
+}
+
+main{
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 10px;
+    margin-top: 40px;
+}
+
+h2{
+    background-color: #485c7b;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.todo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo__app{
+    width: 32%;
+}
+
+.todo__app form{
+    background-color: #6a7987;
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+}
+
+.todo__app form textarea{
+    background: #6a7987;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+    display: block;
+    resize: none;
+    height: 300px;
+    border: none;
+    line-height: 24px;
+    outline: none;
+    border-bottom: 1px solid #293044;
+    border-radius:  10px 10px 0 0;
+}
+
+.todo__app input{
+    position: absolute;
+    top: 0;
+    left: -50px;
+}
+
+.todo__app label{
+    margin: 15px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+} 
+
+.todo__app label img{
+    width: 30px;
+    height: 30px;
+    filter: grayscale(1);
+}
+
+.todo__app input:checked + label img{
+    filter: none;
+}
+
+.todo__app .row{
+    display: flex;
+    align-items: center;
+    padding: 0 10px 10px 10px;
+    justify-content: space-between;
+}
+
+.todo__app button {
+    height: 32px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: #925959;
+    color: white;
+    font-size: 16px;
+}
+
+.todo__list{
+    width: 32%;
+    border: 1px solid green;
+}
+
+.todo__favorite{
+    width: 32%;
+    border: 1px solid green;
+}
