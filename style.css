@@ -101,12 +101,10 @@ h2{
 
 .todo__list{
     width: 32%;
-    border: 1px solid green;
 }
 
 .todo__favorite{
     width: 32%;
-    border: 1px solid green;
 }
 
    
@@ -196,6 +194,34 @@ h2{
     filter: none;
 }
 
+.mobile__menu{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    height: 70px;
+    background: #485c7b;
+    width: calc(100% - 10px);
+    left: 5px;
+    bottom: 5px;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.mobile__menu button {
+    width: 30%;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    background: #605151;
+    color: white;
+}
+
+.mobile__menu button.show{
+    background: #925959;
+}
+
 @media all and (max-width: 1024px){
     .todo{
         flex-direction: column;
@@ -219,3 +245,51 @@ h2{
     }
     
 }
+
+@media all and (max-width: 768px){
+    .todo__app,
+    .todo__list,
+    .todo__favorite{
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        z-index: -1;
+        padding: 5px;
+    }
+
+    .todo__app.show,
+    .todo__list.show,
+    .todo__favorite.show{
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .todo__list-wrapper{
+        height: calc(100vh - 80px - 80px - 10px);
+    }
+    .mobile__menu{
+        display: flex;
+    }
+
+    .todo__app form  textarea{
+        height: calc(100vh - 280px);
+    }
+
+    .todo__list-wrapper::-webkit-scrollbar{
+        width: 0;
+    }
+
+    .todo__list-content::-webkit-scrollbar{
+        width: 0;
+    }
+    @supports (--css: variables) {
+        .todo__app form  textarea{
+            height: calc(100dvh - 280px);
+        }
+        .todo__list-wrapper{
+            height: calc(100dvh - 80px - 80px - 10px);
+        }
+    }
+}
+
