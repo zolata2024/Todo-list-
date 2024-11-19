@@ -293,3 +293,13 @@ h2{
     }
 }
 
+input.status {
+    width: 26px;
+    height: 26px;
+}
+
+.todo__list_control_btns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

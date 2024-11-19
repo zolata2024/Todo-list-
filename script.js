@@ -64,6 +64,7 @@ saveBtn.addEventListener("click", () => {//добавляе подію клик 
 
   `
   firstScreenText.value = ""
+  localStorage.setItem("secondScreenList", secondScreenList.innerHTML)
 })
 
 secondScreenList.addEventListener("click", (e) => {
@@ -74,6 +75,9 @@ secondScreenList.addEventListener("click", (e) => {
   if (e.target.closest(".star")){
     thirdScreenList.prepend(e.target.parentElement.parentElement.parentElement.parentElement)
   }
+
+  localStorage.setItem("secondScreenList", secondScreenList.innerHTML)
+  localStorage.setItem("thirdScreenList", thirdScreenList.innerHTML)
 })
 thirdScreenList.addEventListener("click", (e) => {
   if (e.target.closest(".delete")) {
@@ -83,4 +87,17 @@ thirdScreenList.addEventListener("click", (e) => {
   if (e.target.closest(".star")){
     secondScreenList.prepend(e.target.parentElement.parentElement.parentElement.parentElement)
   }
+
+  localStorage.setItem("secondScreenList", secondScreenList.innerHTML)
+  localStorage.setItem("thirdScreenList", thirdScreenList.innerHTML)
 })
+
+let secondScreenListSaved = localStorage.getItem("secondSreenList")
+let thirdScreenListSaved = localStorage.getItem("thirdScreenList")
+console.log(secondScreenListSaved, thirdScreenListSaved)
+if (secondScreenListSaved) {
+secondScreenList.innerHTML = secondScreenListSaved
+}
+if (thirdScreenListSaved) {
+  thirdScreenList.innerHTML = thirdScreenListSaved
+  }
