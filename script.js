@@ -92,7 +92,7 @@ thirdScreenList.addEventListener("click", (e) => {
   localStorage.setItem("thirdScreenList", thirdScreenList.innerHTML)
 })
 
-let secondScreenListSaved = localStorage.getItem("secondSreenList")
+let secondScreenListSaved = localStorage.getItem("secondScreenList")
 let thirdScreenListSaved = localStorage.getItem("thirdScreenList")
 console.log(secondScreenListSaved, thirdScreenListSaved)
 if (secondScreenListSaved) {
