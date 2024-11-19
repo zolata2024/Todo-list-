@@ -9,6 +9,7 @@ let thirdScreen = document.querySelector(".todo__favorite")   // третій е
 let saveBtn = document.querySelector(".save")
 let firstScreenText = document.querySelector("textarea")
 let secondScreenList = document.querySelector(".todo__list-wrapper")
+let thirdScreenList = document.querySelector(".favorite-list")
 let form = document.querySelector("form")
 
 firstScreen.classList.add("show")   // за замовчуванням показати перший екран (першу половинку)
@@ -44,17 +45,17 @@ thirdBtn.addEventListener("click", () => {
   thirdBtn.classList.add("paint")
 })
 
-form.addEventListener("submit", (e) => {e.preventDefault()})//відміняе перезагрузку при кліку на кнопку save
-saveBtn.addEventListener("click", () =>{//добавляе подію клик на кнопку сейв
+form.addEventListener("submit", (e) => { e.preventDefault() })//відміняе перезагрузку при кліку на кнопку save
+saveBtn.addEventListener("click", () => {//добавляе подію клик на кнопку сейв
 
-  
-  secondScreenList.innerHTML +=`
+
+  secondScreenList.innerHTML += `
    <div class="todo__list-item">
                         <p class="todo__list-content">${firstScreenText.value}</p>
                         <div class="todo__list-controll">
                             <div class="todo__list_control_btns">
                                 <input class="status" type="checkbox" name="" id="">
-                                <button> <img src="./assets/icon/star.svg" alt="star"></button>
+                                <button class="star"> <img src="./assets/icon/star.svg" alt="star"></button>
                                 <button class="delete"> <img src="./assets/icon/rubbish bin.svg" alt="star"></button>
                             </div>
                             <p>18/10/2024</p>
@@ -65,8 +66,21 @@ saveBtn.addEventListener("click", () =>{//добавляе подію клик �
   firstScreenText.value = ""
 })
 
-secondScreenList.addEventListener("click", (e) =>{
-if(e.target.closest(".delete")){
-  alert("Привіт, Злата")
-}
+secondScreenList.addEventListener("click", (e) => {
+  if (e.target.closest(".delete")) {
+        e.target.parentElement.parentElement.parentElement.parentElement.remove()
+  }
+
+  if (e.target.closest(".star")){
+    thirdScreenList.prepend(e.target.parentElement.parentElement.parentElement.parentElement)
+  }
+})
+thirdScreenList.addEventListener("click", (e) => {
+  if (e.target.closest(".delete")) {
+        e.target.parentElement.parentElement.parentElement.parentElement.remove()
+  }
+
+  if (e.target.closest(".star")){
+    secondScreenList.prepend(e.target.parentElement.parentElement.parentElement.parentElement)
+  }
 })
